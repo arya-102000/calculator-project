@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./calculator.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="higher">
+      <div class="main">
+        <h style="color: white;font-size: 30px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">calculator</h>
+        <div class="input">
+            <input type="text" id="pre" readonly>
+        </div>
+        <div class="number">
+          <div class="numberdiv1">
+            <input type="button" value="C" onclick="clearDisplay()" style="background-color: rgb(199, 2, 2);">
+            <input type="button" value="." onclick="addToDisplay('.')">
+            <input type="button" value="%" onclick="addToDisplay('%')">
+            <input type="button" value="CE" onclick="clearLast()">
+            
+            
+          </div>
+          <div class="numberdiv">
+            <input type="button" value="1" onclick="addToDisplay('1')">
+            <input type="button" value="2" onclick="addToDisplay('2')">
+            <input type="button" value="3" onclick="addToDisplay('3')">
+            <input type="button" value="X" onclick="addToDisplay('*')">
+          </div>
+          <div class="numberdiv">
+            <input type="button" value="4" onclick="addToDisplay('4')">
+            <input type="button" value="5" onclick="addToDisplay('5')">
+            <input type="button" value="6" onclick="addToDisplay('6')">
+            <input type="button" value="-" onclick="addToDisplay('-')">
+          </div>
+          <div class="numberdiv">
+            <input type="button" value="7" onclick="addToDisplay('7')">
+            <input type="button" value="8" onclick="addToDisplay('8')">
+            <input type="button" value="9" onclick="addToDisplay('9')">
+            <input type="button" value="+" onclick="addToDisplay('+')">
+          </div>
+          <div class="numberdiv">
+            <input type="button" value="0" onclick="addToDisplay('0')">
+            <input type="button" value="00" onclick="addToDisplay('00')">
+            <input type="button" value="=" onclick="calculate()" style="background-color:rgb(199, 2, 2) ;">
+            <input type="button" value="/" onclick="addToDisplay('/')">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addToDisplay(value){
+        document.getElementById('pre').value += value;
+      }
+      function clearDisplay(){
+        document.getElementById('pre').value ='';
+      }
+      function calculate(){
+        try{
+          var result = eval(document.getElementById('pre').value);
+          document.getElementById('pre').value = result;
+        }catch(error){
+          document.getElementById('pre').value ='Error';
+        }
+      }
+      function clearLast(){
+        var display = document.getElementById('pre');
+        display.value = display.value.slice(0,-1);
+      }
+    </script>
+  </body>
+</html>
