@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="./calculator.css" rel="stylesheet" />
+
   </head>
   <body>
     <div class="higher">
@@ -49,25 +50,8 @@
         </div>
       </div>
     </div>
-    <script>
-      function addToDisplay(value){
-        document.getElementById('pre').value += value;
-      }
-      function clearDisplay(){
-        document.getElementById('pre').value ='';
-      }
-      function calculate(){
-        try{
-          var result = eval(document.getElementById('pre').value);
-          document.getElementById('pre').value = result;
-        }catch(error){
-          document.getElementById('pre').value ='Error';
-        }
-      }
-      function clearLast(){
-        var display = document.getElementById('pre');
-        display.value = display.value.slice(0,-1);
-      }
+    <script src="index.js">
+      
     </script>
   </body>
 </html>
